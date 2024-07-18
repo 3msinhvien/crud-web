@@ -46,7 +46,19 @@ app.post('/signup', async (req, res) => {
 
 app.post("/login", async (req, res) => {
     try {
-        const check = await collection.findOne({
+        if (req.body.username == 'admin') {
+            const isPasswordMatch = await collection.findOne({
+                password: req.body.password
+            });
+            if (isPasswordMatch) {
+                res.render("admin-home");
+            }
+            else {
+                res.send("wrong password");
+            }
+        }
+        else
+        {const check = await collection.findOne({
             name: req.body.username
         });
         if (!check) {
@@ -59,7 +71,7 @@ app.post("/login", async (req, res) => {
             res.render("home");
         } else {
             res.send("Wrong password!");
-        }
+        }}
     } catch (error) {
         res.send("Wrong details");
     }

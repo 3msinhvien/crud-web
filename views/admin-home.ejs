@@ -20,12 +20,11 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
         }
 
         /* Main container styling */
         .admin-container {
-            width: 90%;
+            width: 80%;
             max-width: 1200px;
             background-color: #fff;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -45,7 +44,7 @@
 
         .sidebar h2 {
             margin-bottom: 20px;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             text-align: center;
         }
 
@@ -55,7 +54,7 @@
         }
 
         .sidebar li {
-            padding: 12px 0;
+            padding: 10px 0;
         }
 
         .sidebar a {
@@ -76,89 +75,52 @@
         }
 
         .main-content h1 {
-            font-size: 3rem;
-            margin-bottom: 30px;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
             text-align: center;
             color: #333;
         }
 
         .card {
-            background-color: #f9f9f9;
+            background-color: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .card h2 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
             text-align: center;
             color: #333;
         }
 
         .card p {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: #666;
             text-align: center;
         }
 
-        /* Color variations for cards */
+        /* Colorful variations */
         .card:nth-child(2) {
-            background-color: #fceabb;
+            background-color: #fde2e4;
         }
 
         .card:nth-child(3) {
-            background-color: #a2e8dd;
+            background-color: #e2f0cb;
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .admin-container {
                 grid-template-columns: 1fr;
-            }
-
-            .sidebar {
-                padding: 15px;
-            }
-
-            .sidebar h2 {
-                font-size: 1.6rem;
-                margin-bottom: 15px;
-            }
-
-            .sidebar a {
-                padding: 8px 12px;
-            }
-
-            .main-content {
-                padding: 15px;
-            }
-
-            .main-content h1 {
-                font-size: 2.5rem;
-                margin-bottom: 20px;
-            }
-
-            .card {
-                padding: 15px;
-                margin-bottom: 20px;
-            }
-
-            .card h2 {
-                font-size: 1.6rem;
-                margin-bottom: 12px;
-            }
-
-            .card p {
-                font-size: 1.2rem;
             }
         }
     </style>
