@@ -28,9 +28,42 @@ app.post('/signup', async (req, res) => {
         name: req.body.username,
         password: req.body.password
     }
-    const userdata = await collection.insertMany(data);
-    console.log(userdata);
+    // Ktra xem co trung username:
+    const existingUser = await collection.findOne({
+        name: data.name
+    });
+
+    if (existingUser) {
+        res.send("Choose a different username!");
+    } else {
+        const userdata = await collection.insertMany(data);
+        console.log(userdata);
+    }
+
 })
+
+// Login
+
+app.post("/login", async (req, res) => {
+    try {
+        const check = await collection.findOne({
+            name: req.body.username
+        });
+        if (!check) {
+            res.send("Wrong username");
+        }
+        const isPasswordMatch = await collection.findOne({
+            password: req.body.password
+        });
+        if (isPasswordMatch) {
+            res.render("home");
+        } else {
+            res.send("Wrong password!");
+        }
+    } catch (error) {
+        res.send("Wrong details");
+    }
+});
 
 const port = 3000;
 app.listen(port, () => {
