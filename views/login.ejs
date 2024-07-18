@@ -3,198 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <style>
-        /* Reset default styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <title>Login</title>
 
-        /* Body styling */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        /* Main container styling */
-        .admin-container {
-            width: 90%;
-            max-width: 1200px;
-            background-color: #fff;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            display: grid;
-            grid-template-columns: 1fr 3fr;
-            grid-gap: 20px;
-        }
-
-        /* Sidebar styling */
-        .sidebar {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-        }
-
-        .sidebar h2 {
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            text-align: center;
-        }
-
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .sidebar li {
-            padding: 12px 0;
-        }
-
-        .sidebar a {
-            color: #fff;
-            text-decoration: none;
-            display: block;
-            padding: 10px 15px;
-            transition: background-color 0.3s ease;
-        }
-
-        .sidebar a:hover {
-            background-color: #555;
-        }
-
-        /* Main content styling */
-        .main-content {
-            padding: 20px;
-        }
-
-        .main-content h1 {
-            font-size: 3rem;
-            margin-bottom: 30px;
-            text-align: center;
-            color: #333;
-        }
-
-        .card {
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .card h2 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            text-align: center;
-            color: #333;
-        }
-
-        .card p {
-            font-size: 1.4rem;
-            color: #666;
-            text-align: center;
-        }
-
-        /* Color variations for cards */
-        .card:nth-child(2) {
-            background-color: #fceabb;
-        }
-
-        .card:nth-child(3) {
-            background-color: #a2e8dd;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .admin-container {
-                grid-template-columns: 1fr;
-            }
-
-            .sidebar {
-                padding: 15px;
-            }
-
-            .sidebar h2 {
-                font-size: 1.6rem;
-                margin-bottom: 15px;
-            }
-
-            .sidebar a {
-                padding: 8px 12px;
-            }
-
-            .main-content {
-                padding: 15px;
-            }
-
-            .main-content h1 {
-                font-size: 2.5rem;
-                margin-bottom: 20px;
-            }
-
-            .card {
-                padding: 15px;
-                margin-bottom: 20px;
-            }
-
-            .card h2 {
-                font-size: 1.6rem;
-                margin-bottom: 12px;
-            }
-
-            .card p {
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <div class="admin-container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <h2>Admin Panel</h2>
-            <ul>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Users</a></li>
-                <li><a href="#">Settings</a></li>
-            </ul>
-        </div>
-
-        <!-- Main Content -->
-        <div class="main-content">
-            <h1>Welcome, Admin!</h1>
-
-            <!-- Cards for quick access -->
-            <div class="card">
-                <h2>Total Users</h2>
-                <p>1200</p>
+    <div class="form-container">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="username" placeholder="Enter your username" required autocomplete="off">
             </div>
-
-            <div class="card">
-                <h2>Total Orders</h2>
-                <p>500</p>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="password">
             </div>
-
-            <div class="card">
-                <h2>Revenue</h2>
-                <p>$50,000</p>
-            </div>
-        </div>
+            <button type="submit" class="submit-btn">Login</button>
+        </form>
+        <p>Don't have an account? <a href="/signup">Sign up here</a></p>
     </div>
 </body>
 </html>
