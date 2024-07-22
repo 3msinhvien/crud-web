@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "nodemon --inspect index.js"
+    "start": "npx nodemon --inspect index.js",
+    "dev": "npx nodemon src/index.js --watch"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
