@@ -5,6 +5,7 @@ const collection = require("./config");
 const postService = require("../controllers/postService");
 const { log } = require("console");
 
+
 const app = express();
 //Chuyen data sang json
 app.use(express.json());
@@ -28,9 +29,7 @@ app.get("/signup", (req, res) => {
 app.get("/create-post", (req, res) => {
     res.render("create-post");
 });
-app.get("/post-list", (req, res) => {
-    res.render("post-list");
-});
+
 
 //Register
 app.post("/signup", async (req, res) => {
@@ -102,7 +101,9 @@ if (loginSuccess === true) {
     });
 }
 //Show bai viet ra man hinh
+console.log("abcd");
 app.get("/post-list", async (req, res) => {
+    console.log("OOOOO");
     try {
         const posts = await postService.getAllPosts();
         console.log("Posts received in route handler:", posts);

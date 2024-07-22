@@ -4,20 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #3498db;
+            margin-top: 0;
+        }
+        p {
+            margin-bottom: 0;
+        }
+        .no-posts {
+            text-align: center;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
     <h1>Post List</h1>
-<% if (typeof posts !== 'undefined' && posts.length > 0) { %>
-    <ul>
-    <% posts.forEach(function(post) { %>
-        <li>
-            <h2><%= post.title %></h2>
-            <p><%= post.content %></p>
-        </li>
-    <% }); %>
-    </ul>
-<% } else { %>
-    <p>No posts found or posts data not available.</p>
-<% } %>
+    <% if (typeof posts !== 'undefined' && posts.length > 0) { %>
+        <ul>
+        <% posts.forEach(function(post) { %>
+            <li>
+                <h2><%= post.title %></h2>
+                <p><%= post.content %></p>
+            </li>
+        <% }); %>
+        </ul>
+    <% } else { %>
+        <p class="no-posts">No posts found or posts data not available.</p>
+    <% } %>
 </body>
 </html>
