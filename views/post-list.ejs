@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post List</title>
+</head>
+<body>
+    <h1>Post List</h1>
+<% if (typeof posts !== 'undefined' && posts.length > 0) { %>
+    <ul>
+    <% posts.forEach(function(post) { %>
+        <li>
+            <h2><%= post.title %></h2>
+            <p><%= post.content %></p>
+        </li>
+    <% }); %>
+    </ul>
+<% } else { %>
+    <p>No posts found or posts data not available.</p>
+<% } %>
+</body>
+</html>

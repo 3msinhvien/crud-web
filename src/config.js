@@ -19,5 +19,20 @@ const LoginSchema = new mongoose.Schema({
     }
 });
 
-const collection = new mongoose.model("users" ,LoginSchema);
+const postSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: true
+    },
+    content: {
+        type: String,
+        required: true
+    }
+});
+
+collection = {
+    users: new mongoose.model("users", LoginSchema),
+    posts: new mongoose.model("posts", postSchema)
+    };
+
 module.exports = collection;
