@@ -3,7 +3,9 @@ const pasth = require("path");
 const bcrypt = require("bcrypt");
 const collection = require("./config");
 const postService = require("../controllers/postService");
-const { log } = require("console");
+const {
+    log
+} = require("console");
 
 
 const app = express();
@@ -52,7 +54,7 @@ app.post("/signup", async (req, res) => {
 
 // Login
 
-var loginSuccess = true;
+var loginSuccess ;
 
 app.post("/login", async (req, res) => {
     try {
@@ -89,25 +91,26 @@ app.post("/login", async (req, res) => {
 });
 
 // Post
-
-if (loginSuccess === true) {
     app.post("/create-post", async (req, res) => {
         const data = {
             title: req.body.title,
             content: req.body.content,
         };
-        const userdata = await collection.posts.insertMany(data);
-        console.log("Success");
+        if (loginSuccess === true) {
+            const userdata = await collection.posts.insertMany(data);
+        }
+        else res.send("Please login first")
     });
-}
-//Show bai viet ra man hinh
-console.log("abcd");
+
+
+//Show post
 app.get("/post-list", async (req, res) => {
-    console.log("OOOOO");
     try {
         const posts = await postService.getAllPosts();
         console.log("Posts received in route handler:", posts);
-        res.render("post-list", { posts: posts });
+        res.render("post-list", {
+            posts: posts
+        });
     } catch (error) {
         console.error("Error rendering post list:", error);
         res.status(500).send("Internal Server Error");

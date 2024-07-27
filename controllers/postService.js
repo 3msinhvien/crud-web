@@ -1,10 +1,8 @@
 const collection = require("../src/config");
 
 async function getAllPosts() {
-    console.log("ABCD");
     try {
         const posts = await collection.posts.find({}).lean();
-        
         return posts;
         
     } catch (error) {
