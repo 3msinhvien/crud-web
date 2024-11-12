@@ -15,112 +15,130 @@
         /* Body styling */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0;
+            background-color: #e9ecef;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            color: #333;
         }
 
         /* Main container styling */
         .admin-container {
-            width: 80%;
-            max-width: 1200px;
+            width: 90%;
+            max-width: 800px;
             background-color: #fff;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
             overflow: hidden;
             display: grid;
-            grid-template-columns: 1fr 3fr;
-            grid-gap: 20px;
+            grid-template-columns: 250px 1fr;
+            gap: 20px;
         }
 
         /* Sidebar styling */
         .sidebar {
-            background-color: #333;
+            background-color: #343a40;
             color: #fff;
-            padding: 20px;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 12px 0 0 12px;
         }
 
         .sidebar h2 {
-            margin-bottom: 20px;
-            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f8f9fa;
             text-align: center;
         }
 
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .sidebar li {
-            padding: 10px 0;
-        }
-
         .sidebar a {
-            color: #fff;
+            color: #ced4da;
             text-decoration: none;
             display: block;
-            padding: 10px 15px;
-            transition: background-color 0.3s ease;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .sidebar a:hover {
-            background-color: #555;
+            background-color: #495057;
+            color: #fff;
+        }
+
+        .logout-button {
+            margin-top: auto;
+            padding: 10px 20px;
+            background-color: #ff6b6b;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logout-button:hover {
+            background-color: #e63946;
         }
 
         /* Main content styling */
         .main-content {
-            padding: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f8f9fa;
+            border-radius: 0 12px 12px 0;
         }
 
         .main-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-align: center;
-            color: #333;
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 40px;
         }
 
-        .card {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .card h2 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            text-align: center;
-            color: #333;
-        }
-
-        .card p {
+        /* Button styling */
+        .post-list-button {
+            padding: 15px 30px;
             font-size: 1.2rem;
-            color: #666;
+            color: #fff;
+            background-color: #3498db;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
             text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        /* Colorful variations */
-        .card:nth-child(2) {
-            background-color: #fde2e4;
-        }
-
-        .card:nth-child(3) {
-            background-color: #e2f0cb;
+        .post-list-button:hover {
+            background-color: #2980b9;
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .admin-container {
                 grid-template-columns: 1fr;
+            }
+            .sidebar h2 {
+                font-size: 1.5rem;
+            }
+            .main-content h1 {
+                font-size: 1.8rem;
+            }
+            .post-list-button {
+                font-size: 1rem;
+                padding: 10px 20px;
             }
         }
     </style>
@@ -130,32 +148,14 @@
         <!-- Sidebar -->
         <div class="sidebar">
             <h2>Admin Panel</h2>
-            <ul>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Users</a></li>
-                <li><a href="#">Settings</a></li>
-            </ul>
+            <a href="/user-list">Danh sách người dùng</a>
+            <a href="/logout" class="logout-button">Đăng xuất</a>
         </div>
 
         <!-- Main Content -->
         <div class="main-content">
             <h1>Welcome, Admin!</h1>
-
-            <!-- Cards for quick access -->
-            <div class="card">
-                <h2>Total Users</h2>
-                <p>1200</p>
-            </div>
-
-            <div class="card">
-                <h2>Total Orders</h2>
-                <p>500</p>
-            </div>
-
-            <div class="card">
-                <h2>Revenue</h2>
-                <p>$50,000</p>
-            </div>
+            <a href="/post-list" class="post-list-button">Danh sách bài viết</a>
         </div>
     </div>
 </body>

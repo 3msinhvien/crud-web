@@ -60,13 +60,32 @@
             background-color: #fff;
             color: #333;
         }
+
+        /* Logout button styling */
+        .logout-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #fff;
+            background-color: rgba(255, 0, 0, 0.5);
+            border: 2px solid #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .logout-button:hover {
+            background-color: #ff4d4d;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
     <div class="welcome-container">
         <h1 class="welcome-user">Welcome</h1>
-        <button class="link-button" onclick="location.href='post-list'">Post List</button>
-        <button class="link-button" onclick="location.href='create-post'">Create Post</button>
+        <button class="link-button" onclick="location.href='post-list'">Các bài viết</button>
+        <button class="link-button" onclick="location.href='create-post'">Tạo bài viết</button>
+        <button class="logout-button" onclick="location.href='/logout'">Đăng xuất</button>
     </div>
     <canvas id="fireworks"></canvas>
 

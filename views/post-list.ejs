@@ -30,34 +30,53 @@
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
         }
         h2 {
             color: #3498db;
             margin-top: 0;
         }
         p {
-            margin-bottom: 0;
+            margin-bottom: 10px;
         }
         .no-posts {
             text-align: center;
             color: #7f8c8d;
             font-style: italic;
         }
+        .edit-button {
+            display: inline-block;
+            padding: 8px 12px;
+            color: #fff;
+            background-color: #3498db;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+        .edit-button:hover {
+            background-color: #2980b9;
+        }
+        .button-container {
+            margin-top: 10px;
+            text-align: right;
+        }
     </style>
 </head>
 <body>
-    <h1>Post List</h1>
+    <h1>Danh sách bài viết</h1>
     <% if (typeof posts !== 'undefined' && posts.length > 0) { %>
         <ul>
         <% posts.forEach(function(post) { %>
             <li>
                 <h2><%= post.title %></h2>
                 <p><%= post.content %></p>
+                <div class="button-container">
+                    <a href="/edit-post/<%= post._id %>" class="edit-button">Chỉnh sửa</a>
+                </div>
             </li>
         <% }); %>
         </ul>
-    <% } else { %>
-        <p class="no-posts">No posts found or posts data not available.</p>
     <% } %>
 </body>
 </html>
